@@ -47,17 +47,19 @@ WEnd
 $MainWnd = GUICreate("Choose the TDE version you want to use", 550, 300, @DesktopWidth/2 - 225, @DesktopHeight/2 - 150)
 GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-   ; ListView
-   $ListView = GUICtrlCreateListView("Name|Version|Install Location", 10, 10, 530, 280)
-   _GUICtrlListView_SetColumnWidth($ListView, 0, 250)
-   _GUICtrlListView_SetColumnWidth($ListView, 1, 80)
-   _GUICtrlListView_SetColumnWidth($ListView, 2, 350)
-	  ; ListView items
-	  For $i = 0 To $VersionCount-1
-		 $ListItemStr = $VersionList[$i][0] & "|" & $VersionList[$i][1] & "|" & $VersionList[$i][2]
-		 GUICtrlCreateListViewItem ($ListItemStr, $ListView)
-		 ConsoleWrite($ListItemStr & @CRLF)
-	  Next
+; ListView
+$ListView = GUICtrlCreateListView("Name|Version|Install Location", 10, 10, 530, 280)
+_GUICtrlListView_SetColumnWidth($ListView, 0, 250)
+_GUICtrlListView_SetColumnWidth($ListView, 1, 80)
+_GUICtrlListView_SetColumnWidth($ListView, 2, 350)
+; ListView items
+For $i = 0 To $VersionCount-1
+   $ListItemStr = $VersionList[$i][0] & "|" & $VersionList[$i][1] & "|" & $VersionList[$i][2]
+   GUICtrlCreateListViewItem ($ListItemStr, $ListView)
+   ConsoleWrite($ListItemStr & @CRLF)
+Next
+; Sort ListView
+_GUICtrlListView_SimpleSort($ListView, False, 1)
 
 GUISetState()
 
