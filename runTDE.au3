@@ -99,7 +99,9 @@ EndFunc
 Func Run_TDE ($iIndex)
    ;$DisplayName     = $VersionList[$iIndex][0]
    ;$DisplayVersion  = $VersionList[$iIndex][1]
-   $InstallLocation = $VersionList[$iIndex][2]
+   ;$InstallLocation = $VersionList[$iIndex][2]
+   $InstallLocation = _GUICtrlListView_GetItemTextArray($ListView)[3]
+   MsgBox(0, "Information", $InstallLocation)
    ;$split = StringSplit($DisplayVersion, '.')
    ;If $split[0] > 2 Then
 	;  $ShortVersion = $split[2]
