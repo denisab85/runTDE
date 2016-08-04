@@ -97,16 +97,7 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 EndFunc
 
 Func Run_TDE ($iIndex)
-   ;$DisplayName     = $VersionList[$iIndex][0]
-   ;$DisplayVersion  = $VersionList[$iIndex][1]
-   ;$InstallLocation = $VersionList[$iIndex][2]
    $InstallLocation = _GUICtrlListView_GetItemTextArray($ListView)[3]
-   MsgBox(0, "Information", $InstallLocation)
-   ;$split = StringSplit($DisplayVersion, '.')
-   ;If $split[0] > 2 Then
-	;  $ShortVersion = $split[2]
-	;  $ShortVersion = _StringInsert($ShortVersion, ".", 1)
-   ;EndIf
    $Param = ""
    $ProjectFile = ""
    If UBound($cmdLine) > 1 Then
